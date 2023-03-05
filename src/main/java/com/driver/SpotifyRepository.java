@@ -295,6 +295,8 @@ public class SpotifyRepository {
             if(song.getTitle().equals(songTitle)){
 
                 newSong = song;
+                int like =song.getLikes();
+                song.setLikes(like + 1);
                 break;
             }
         }
@@ -336,7 +338,7 @@ public class SpotifyRepository {
         int max = 0;
         String mostPopSong ="";
         for(Map.Entry<Song,List<User>> entry : songLikeMap.entrySet()){
-            int len = entry.getValue().size();
+            int len = entry.getKey().getLikes();
             if(len >max){
                 max = Math.max(len,max);
                 mostPopSong = entry.getKey().getTitle();
