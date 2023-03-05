@@ -69,9 +69,9 @@ public class SpotifyController {
         //If the user does not exist, throw "User does not exist" exception
         //If the playlist does not exists, throw "Playlist does not exist" exception
         // Return the playlist after updating
-        spotifyService.findPlaylist(mobile, playlistTitle);
+        String s= spotifyService.findPlaylist(mobile, playlistTitle).getTitle();
 
-        return "Success";
+        return s;
     }
 
     @PutMapping("/like-song")
@@ -83,9 +83,9 @@ public class SpotifyController {
         //If the song does not exist, throw "Song does not exist" exception
         //Return the song after updating
 
-        spotifyService.likeSong(mobile, songTitle);
+        String s = spotifyService.likeSong(mobile, songTitle).getTitle();
 
-        return "Success";
+        return s;
     }
 
     @GetMapping("/popular-artist")
